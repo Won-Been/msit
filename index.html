@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>과학기술정보통신부 (MSIT) - 국민과 함께 여는 미래</title>
+  <style>
+    :root {
+      --primary: #be185d;           /* 짙은 로즈 핑크 (주요 타이틀 및 강조) */
+      --primary-light: #e11d48;     /* 선명한 핑크/로즈 */
+      --secondary: #f43f5e;       /* 생동감 있는 코랄 핑크 */
+      --accent: #fb7185;          /* 부드러운 핑크 포인트 */
+      --bg: #fff5f7;              /* 따뜻하고 은은한 로맨틱 핑크 베이지 배경 */
+      --card-bg: #ffffff;
+      --text: #371822;            /* 핑크 톤과 조화로운 짙은 플럼/차콜 텍스트 */
+      --text-muted: #885c6c;      /* 차분한 로즈 그레이 */
+      --border: #fce7f3;          /* 연한 핑크 테두리 */
+      --shadow-sm: 0 1px 3px rgba(190, 24, 93, 0.06);
+      --shadow-md: 0 4px 14px rgba(190, 24, 93, 0.08);
+      --shadow-lg: 0 10px 25px rgba(190, 24, 93, 0.12);
+      --radius: 14px;
+      --transition: all 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* 상단 네비게이션 */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 8px rgba(190, 24, 93, 0.3);
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-title small {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: var(--transition);
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-light);
+      background: #fdf2f8;
+    }
+
+    /* 영웅 섹션 (Hero) */
+    .hero {
+      background: linear-gradient(135deg, #831843 0%, #be185d 50%, #db2777 100%);
+      color: white;
+      padding: 4.5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(251, 113, 133, 0.35) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(4px);
+      padding: 0.35rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-primary {
+      background: #f43f5e;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #e11d48;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(225, 29, 72, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* 본문 공통 컨테이너 */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.8rem;
+    }
+
+    .section-badge {
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0.4rem 0 0.8rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* 카드 그리드 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      margin-bottom: 1.2rem;
+      background: #fdf2f8;
+      color: var(--primary);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: #fce7f3;
+      color: #9d174d;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* 대화형 탭 섹션 (쉬운 설명 동향) */
+    .interactive-section {
+      background: #ffffff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 2.2rem;
+      box-shadow: var(--shadow-sm);
+      margin-top: 2rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.75rem;
+      border-bottom: 2px solid #fce7f3;
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.8rem;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      background: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: var(--primary);
+      box-shadow: 0 2px 8px rgba(190, 24, 93, 0.25);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: #fdf2f8;
+      color: var(--primary);
+    }
+
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .trend-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .trend-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .trend-info h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .trend-info .summary {
+      font-size: 1.05rem;
+      color: #334155;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .highlight-card {
+      background: #fff1f2;
+      border-left: 4px solid var(--secondary);
+      padding: 1.2rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1rem;
+    }
+
+    .highlight-card strong {
+      display: block;
+      color: var(--primary);
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .highlight-card p {
+      font-size: 0.9rem;
+      color: #475569;
+      margin: 0;
+    }
+
+    /* 최신 뉴스 및 기사 섹션 */
+    .news-filters {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .news-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .news-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      border-color: var(--primary-light);
+    }
+
+    .news-category {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #fce7f3;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+      width: fit-content;
+    }
+
+    .news-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .news-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+    }
+
+    .news-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #fce7f3;
+      padding-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #9d7182;
+    }
+
+    .news-link {
+      font-weight: 600;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .news-link:hover {
+      text-decoration: underline;
+      color: var(--secondary);
+    }
+
+    /* 퀴즈 / 참여형 위젯 섹션 */
+    .quiz-card {
+      background: linear-gradient(135deg, #fff1f2, #ffe4e6);
+      border: 1px solid #fecdd3;
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    /* 맞춤 혜택 진단 설문 / 체크리스트 스타일 */
+    .survey-container {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.2rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .survey-step-indicator {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .step-dot {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #a17a88;
+    }
+
+    .step-dot.active {
+      color: var(--primary);
+    }
+
+    .step-dot.completed {
+      color: var(--secondary);
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fce7f3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .step-dot.active .step-number {
+      background: var(--primary);
+      color: white;
+    }
+
+    .step-dot.completed .step-number {
+      background: var(--secondary);
+      color: white;
+    }
+
+    .survey-question-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .survey-question-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .option-card {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .option-card:hover {
+      border-color: var(--secondary);
+      background: #fff5f7;
+      transform: translateY(-2px);
+    }
+
+    .option-card.selected {
+      border-color: var(--primary);
+      background: #fff1f2;
+      box-shadow: 0 0 0 1px var(--primary);
+    }
+
+    .option-card input[type="radio"],
+    .option-card input[type="checkbox"] {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .option-emoji {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .option-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .option-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .survey-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    /* 결과 대시보드 */
+    .benefit-result-box {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .result-header {
+      background: linear-gradient(135deg, #be185d, #e11d48);
+      color: white;
+      padding: 1.8rem;
+      border-radius: 12px;
+      margin-bottom: 1.8rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(190, 24, 93, 0.2);
+    }
+
+    .result-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .benefit-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.3rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      transition: var(--transition);
+    }
+
+    .benefit-item:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+      transform: translateX(4px);
+    }
+
+    .benefit-icon {
+      font-size: 2rem;
+      background: #fdf2f8;
+      padding: 0.6rem;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .benefit-details {
+      flex-grow: 1;
+    }
+
+    .benefit-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .benefit-tag {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: #fce7f3;
+      color: #be185d;
+      font-weight: 600;
+    }
+
+    .benefit-desc {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
+    }
+
+    .benefit-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .benefit-link-btn:hover {
+      text-decoration: underline;
+      color: var(--primary);
+    }
+    }
+
+    .benefit-desc {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
+    }
+
+    .benefit-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .benefit-link-btn:hover {
+      text-decoration: underline;
+    }
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .quiz-options {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .quiz-btn {
+      padding: 0.7rem 1.4rem;
+      background: white;
+      border: 1px solid #bcd8f0;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .quiz-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .quiz-result {
+      margin-top: 1.2rem;
+      font-weight: 600;
+      min-height: 1.5rem;
+    }
+
+    /* 푸터 */
+    footer {
+      background: #4a1525;
+      color: #fbcfe8;
+      padding: 3rem 1.5rem 2rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #701a36;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-brand h4 {
+      color: white;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links div h5 {
+      color: #fecdd3;
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid #701a36;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header>
+    <div class="nav-container">
+      <div class="brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <div class="brand-logo">MSIT</div>
+        <div class="brand-title">
+          <span>과학기술정보통신부</span>
+          <small>Ministry of Science and ICT</small>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">부처 소개</a></li>
+        <li><a href="#missions">주요 업무</a></li>
+        <li><a href="#benefits">나의 맞춤 혜택 진단</a></li>
+        <li><a href="#trends">핵심 동향</a></li>
+        <li><a href="#news">최신 뉴스</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 영웅 섹션 -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">🚀 국민의 삶과 국가의 미래를 여는 과학기술·디지털 혁신</div>
+      <h1>대한민국의 내일을 만드는<br>과학기술정보통신부</h1>
+      <p>
+        AI 3대 강국 도약, 우주항공 시대 개막, 양자·반도체 등 국가전략기술 육성!<br>
+        국민 모두가 체감하는 따뜻하고 풍요로운 디지털 세상을 함께 만듭니다.
+      </p>
+      <div class="hero-actions">
+        <a href="#benefits" class="btn btn-primary">✨ 나의 맞춤 혜택 진단하기</a>
+        <a href="#missions" class="btn btn-outline">주요 업무 알아보기</a>
+        <a href="#news" class="btn btn-outline">최신 정책 뉴스</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. 부처 소개 섹션 -->
+  <section class="container" id="about">
+    <div class="section-header">
+      <span class="section-badge">ABOUT MSIT</span>
+      <h2>과학기술정보통신부는 무슨 일을 하나요?</h2>
+      <p>과학기술의 진흥과 ICT(정보통신기술) 발전을 총괄하는 대한민국 정부의 핵심 중앙행정기관입니다.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">🔬</div>
+        <h3>과학기술 혁신 총괄</h3>
+        <p>국가 R&D(연구개발) 예산을 배분·조정하고, 과학기술 인재를 양성하며 기초과학부터 첨단 전략기술까지 국가 연구 생태계를 튼튼하게 지원합니다.</p>
+        <div class="tag-list">
+          <span class="tag">국가 R&D</span>
+          <span class="tag">기초연구</span>
+          <span class="tag">과학기술인재</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">💻</div>
+        <h3>ICT 및 디지털 심화 선도</h3>
+        <p>인공지능(AI), 소프트웨어, 차세대 이동통신(6G), 클라우드 등 디지털 신산업을 육성하고 데이터와 AI가 주도하는 디지털 경제를 완성합니다.</p>
+        <div class="tag-list">
+          <span class="tag">AI 강국</span>
+          <span class="tag">데이터 경제</span>
+          <span class="tag">디지털 인프라</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3>국민 체감 및 안전 보장</h3>
+        <p>전파 자원 관리, 사이버 보안 및 디지털 포용 정책을 통해 국민 누구나 차별 없이 안전하고 편리하게 과학기술과 디지털 혜택을 누리도록 돕습니다.</p>
+        <div class="tag-list">
+          <span class="tag">사이버보안</span>
+          <span class="tag">디지털 포용</span>
+          <span class="tag">전파·통신 복지</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 주요업무 섹션 (알기 쉬운 해설) -->
+  <section style="background: #fff0f3; padding: 4rem 1.5rem;" id="missions">
+    <div class="container" style="padding: 0;">
+      <div class="section-header">
+        <span class="section-badge">CORE MISSIONS</span>
+        <h2>국민의 눈높이로 보는 4대 핵심 역점과제</h2>
+        <p>어려운 과학기술 정책을 국민 일상과 연결하여 알기 쉽게 설명해 드립니다.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon" style="background: #ecfdf5; color: #10b981;">🧠</div>
+          <h3>1. AI 일상화 및 AX(AI 대전환)</h3>
+          <p>
+            <strong>"AI가 국민의 든든한 일상 동료가 됩니다."</strong><br>
+            독자 AI 모델 개발 지원, 교육·복지·행정 전반의 AI 적용, 그리고 전국적인 AI 고속도로(데이터센터 및 컴퓨팅 자원)를 확충합니다.
+          </p>
+          <div class="tag-list">
+            <span class="tag">소버린 AI</span>
+            <span class="tag">AI 바우처</span>
+            <span class="tag">피지컬 AI</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background: #eff6ff; color: #3b82f6;">🌌</div>
+          <h3>2. 우주항공 및 차세대 모빌리티</h3>
+          <p>
+            <strong>"우주를 향한 대한민국의 위대한 도전!"</strong><br>
+            누리호 발사와 차세대 발사체 개발, 저궤도 위성통신망 구축을 통해 우주산업 생태계를 민간 주도로 꽃피우고 우주항공청(KASA)과 협력합니다.
+          </p>
+          <div class="tag-list">
+            <span class="tag">누리호</span>
+            <span class="tag">차세대 발사체</span>
+            <span class="tag">저궤도 위성</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background: #fef3c7; color: #d97706;">⚡</div>
+          <h3>3. 양자 & 첨단 반도체 초격차</h3>
+          <p>
+            <strong>"미래 게임체인저 기술 주도권 확보"</strong><br>
+            꿈의 컴퓨터라 불리는 '양자컴퓨팅' 실증망을 전국으로 확대하고, 초저전력 AI 반도체(NPU, PIM)와 첨단 패키징 기술을 집중 육성합니다.
+          </p>
+          <div class="tag-list">
+            <span class="tag">양자컴퓨터</span>
+            <span class="tag">K-반도체</span>
+            <span class="tag">양자암호통신</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" style="background: #fdf2f8; color: #db2777;">🤝</div>
+          <h3>4. 청년 연구자 및 디지털 포용</h3>
+          <p>
+            <strong>"사람 중심의 튼튼한 과학기술 사다리"</strong><br>
+            이공계 석·박사 학생연구원 연구생활장려금(한국형 스타이펜드) 도입, 청년 과학자 지원 확대, 디지털 취약계층 교육을 지속합니다.
+          </p>
+          <div class="tag-list">
+            <span class="tag">한국형 스타이펜드</span>
+            <span class="tag">디지털 배움터</span>
+            <span class="tag">연구 생태계</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2.5 국민 맞춤 혜택 진단 (체크리스트 & 설문) -->
+  <section class="container" id="benefits">
+    <div class="section-header">
+      <span class="section-badge">CUSTOM BENEFIT FINDER</span>
+      <h2>"과기정통부, 나에게는 어떤 혜택이 있을까요?"</h2>
+      <p>단 30초 체크리스트 설문으로 나의 상황(학생, 일반 국민, 청년/취준생, 연구자, 소상공인)에 맞는 정부 지원 혜택을 찾아보세요.</p>
+    </div>
+
+    <div class="survey-container">
+      
+      <!-- 진행 단계 표시 -->
+      <div class="survey-step-indicator">
+        <div class="step-dot active" id="dot-step1">
+          <span class="step-number">1</span>
+          <span>나의 유형 선택</span>
+        </div>
+        <div class="step-dot" id="dot-step2">
+          <span class="step-number">2</span>
+          <span>관심 분야 체크</span>
+        </div>
+        <div class="step-dot" id="dot-step3">
+          <span class="step-number">3</span>
+          <span>맞춤 혜택 결과</span>
+        </div>
+      </div>
+
+      <!-- 질문 1: 신분 / 대상자 선택 -->
+      <div id="survey-step-1">
+        <h3 class="survey-question-title">현재 본인의 유형을 가장 잘 나타내는 항목을 선택해 주세요.</h3>
+        <p class="survey-question-sub">선택하신 유형에 최적화된 정부 지원 제도와 정책 혜택을 매칭해 드립니다.</p>
+
+        <div class="option-grid">
+          <label class="option-card" onclick="selectRole('student', this)">
+            <input type="radio" name="userRole" value="student">
+            <div class="option-emoji">🎓</div>
+            <div class="option-title">이공계 대학생 / 대학원생</div>
+            <div class="option-desc">연구 활동, 장학금 지원, 연구생활장려금(스타이펜드) 및 학술 연구에 관심이 있습니다.</div>
+          </label>
+
+          <label class="option-card" onclick="selectRole('jobseeker', this)">
+            <input type="radio" name="userRole" value="jobseeker">
+            <div class="option-emoji">💻</div>
+            <div class="option-title">청년 · SW/AI 취업 준비생</div>
+            <div class="option-desc">디지털·코딩 교육, 부트캠프, AI/SW 실무 역량 강화 및 자격증 취득을 원합니다.</div>
+          </label>
+
+          <label class="option-card" onclick="selectRole('business', this)">
+            <input type="radio" name="userRole" value="business">
+            <div class="option-emoji">🏢</div>
+            <div class="option-title">스타트업 · 중소기업 · 창업자</div>
+            <div class="option-desc">AI 바우처, 클라우드 지원, R&D 자금 지원 및 디지털 사업 전환을 희망합니다.</div>
+          </label>
+
+          <label class="option-card" onclick="selectRole('researcher', this)">
+            <input type="radio" name="userRole" value="researcher">
+            <div class="option-emoji">🔬</div>
+            <div class="option-title">전문 연구자 · 교수 · 엔지니어</div>
+            <div class="option-desc">국가 전략 R&D 과제 수주, 첨단 연구 인프라 활용, 국제 공동 연구를 추진하고 있습니다.</div>
+          </label>
+
+          <label class="option-card" onclick="selectRole('general', this)">
+            <input type="radio" name="userRole" value="general">
+            <div class="option-emoji">👨‍👩‍👧‍👦</div>
+            <div class="option-title">일반 국민 · 학부모 · 시니어</div>
+            <div class="option-desc">통신비 절감, 디지털 배움터(스마트폰 교육), 보이스피싱 예방, 과학관 관람에 관심이 있습니다.</div>
+          </label>
+        </div>
+
+        <div class="survey-actions" style="justify-content: flex-end;">
+          <button class="btn btn-primary" onclick="goToStep(2)" id="btn-to-step2" disabled>다음 단계로 (1/2) ➔</button>
+        </div>
+      </div>
+
+      <!-- 질문 2: 관심 분야 다중 선택 체크리스트 -->
+      <div id="survey-step-2" style="display: none;">
+        <h3 class="survey-question-title">관심 있는 지원 분야를 모두 체크해 주세요.</h3>
+        <p class="survey-question-sub">중복 선택이 가능하며, 해당 분야의 맞춤 지원 가이드와 사이트를 안내해 드립니다.</p>
+
+        <div class="option-grid" id="interest-options-container">
+          <!-- JS로 동적 생성 또는 기본 렌더 -->
+        </div>
+
+        <div class="survey-actions">
+          <button class="btn btn-outline" style="color: var(--text); border-color: var(--border);" onclick="goToStep(1)">⬅ 이전으로</button>
+          <button class="btn btn-primary" onclick="showResults()">맞춤 혜택 결과 확인하기 🎯</button>
+        </div>
+      </div>
+
+      <!-- 결과 화면 (스텝 3) -->
+      <div class="benefit-result-box" id="survey-result">
+        <div class="result-header">
+          <span class="result-badge" id="result-user-badge">분석 완료</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.4rem;" id="result-headline">국민님을 위한 과기정통부 맞춤 지원 가이드</h3>
+          <p style="opacity: 0.9; font-size: 0.95rem;">선택하신 관심사와 상황에 맞춰 꼭 챙겨야 할 핵심 정책 혜택들입니다.</p>
+        </div>
+
+        <div id="benefit-items-list">
+          <!-- 자바스크립트로 결과 카드 렌더링 -->
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <button class="btn btn-outline" style="color: var(--primary); border-color: var(--primary);" onclick="resetSurvey()">🔄 다시 설문하기</button>
+          <a href="https://www.msit.go.kr" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-left: 0.8rem;">과기정통부 지원사업 공고 전체보기 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. 핵심 동향 대화형 탭 섹션 -->
+  <section class="container" id="trends">
+    <div class="section-header">
+      <span class="section-badge">INTERACTIVE TRENDS</span>
+      <h2>지금 주목해야 할 과기정통부 핵심 동향</h2>
+      <p>버튼을 클릭하여 현재 진행 중인 국가 주요 기술 및 정책 트렌드를 살펴보세요.</p>
+    </div>
+
+    <div class="interactive-section">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(0)">🤖 AI 메가프로젝트</button>
+        <button class="tab-btn" onclick="switchTab(1)">⚛️ 퀀텀(양자) 마스터플랜</button>
+        <button class="tab-btn" onclick="switchTab(2)">🚀 우주항공 & 위성</button>
+        <button class="tab-btn" onclick="switchTab(3)">💰 역대 최대 R&D 예산</button>
+      </div>
+
+      <!-- 탭 1 -->
+      <div class="tab-panel active" id="tab-0">
+        <div class="trend-box">
+          <div class="trend-info">
+            <h3>글로벌 AI 3대 강국(G3) 도약 프로젝트</h3>
+            <p class="summary">
+              정부는 AI를 국가 존망을 가를 핵심 전략으로 규정하고, <strong>AI 데이터센터</strong>, <strong>피지컬 AI</strong>, <strong>K-반도체</strong>의 '3대 메가프로젝트'를 동시 가동하고 있습니다.
+            </p>
+            <div class="highlight-card">
+              <strong>💡 쉬운 설명 : AI 연구동료(AI Co-Scientist)</strong>
+              <p>과학자가 일일이 실험하지 않아도 AI가 논문 수만 건을 분석해 새로운 가설을 제안하는 똑똑한 연구 조수 시스템을 보급합니다.</p>
+            </div>
+            <div class="highlight-card">
+              <strong>💡 지역 AX 혁신 허브</strong>
+              <p>수도권뿐만 아니라 광주, 대구, 부산 등 전국 산업 거점에 AI를 결합해 지역 경제의 체질을 개선합니다.</p>
+            </div>
+          </div>
+          <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 12px; text-align: center;">
+            <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🧠⚡</div>
+            <h4 style="color: var(--primary);">대한민국 AI 경쟁력</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+              인프라(GPU 컴퓨팅 센터) + 알고리즘(소버린 모델) + 반도체(NPU) 수직 계열화 완성 추진 중!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 탭 2 -->
+      <div class="tab-panel" id="tab-1">
+        <div class="trend-box">
+          <div class="trend-info">
+            <h3>정부 첫 '양자(Quantum) 마스터플랜' 선포</h3>
+            <p class="summary">
+              슈퍼컴퓨터가 수백만 년 걸릴 연산을 수 분 만에 해결하는 양자 기술! 과기정통부는 양자기술산업법 시행과 함께 2035년까지의 종합 청사진을 실행하고 있습니다.
+            </p>
+            <div class="highlight-card">
+              <strong>💡 양자컴퓨터 개발 로드맵</strong>
+              <p>초전도 및 중성원자 기반의 50큐비트급, 1000큐비트급 초고속 양자컴퓨터의 조기 국내 구축을 지원합니다.</p>
+            </div>
+            <div class="highlight-card">
+              <strong>💡 도청 불가능한 양자암호통신망</strong>
+              <p>대구, 광주, 부산, 강원 등 전국 주요 거점에 개방형 시험망을 구축하여 공공·금융 보안을 획기적으로 강화합니다.</p>
+            </div>
+          </div>
+          <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 12px; text-align: center;">
+            <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">⚛️🔐</div>
+            <h4 style="color: var(--primary);">양자 기술 주권 확보</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+              싱가포르, 폴란드 등 글로벌 양자 네트워크와 연계하고 국내 핵심 소부장(소재·부품·장비) 기업을 육성합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 탭 3 -->
+      <div class="tab-panel" id="tab-2">
+        <div class="trend-box">
+          <div class="trend-info">
+            <h3>우주항공청(KASA)과의 원팀 체계 & 민간 우주 시대</h3>
+            <p class="summary">
+              우주항공청 출범에 따라 과기정통부는 기초원천기술 연구와 차세대 저궤도 위성통신망 구축을 집중 지원하며 우주 5대 강국을 겨냥합니다.
+            </p>
+            <div class="highlight-card">
+              <strong>💡 차세대 발사체 & 누리호 고도화</strong>
+              <p>민간 기업(한화에어로스페이스 등)과 함께 발사체 기술을 이전하고 대형 위성 및 달 착륙선 수송 능력을 확보합니다.</p>
+            </div>
+            <div class="highlight-card">
+              <strong>💡 6G 시대의 핵심, 저궤도 위성</strong>
+              <p>지상망이 닿지 않는 바다, 하늘, 오지에서도 스마트폰 통신이 가능하도록 돕는 저궤도 위성 군집망 구축에 착수했습니다.</p>
+            </div>
+          </div>
+          <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 12px; text-align: center;">
+            <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🛰️🌍</div>
+            <h4 style="color: var(--primary);">K-스페이스 생태계</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+              우주 방사선 환경을 견디는 국산 AI 반도체 성능 검증 및 발사 부품 100% 국산화 프로젝트 순항 중!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 탭 4 -->
+      <div class="tab-panel" id="tab-3">
+        <div class="trend-box">
+          <div class="trend-info">
+            <h3>과학기술·AI 부총리 체제와 역대 최대 R&D 예산</h3>
+            <p class="summary">
+              과학기술정보통신부가 국가 컨트롤타워인 부총리급 조직으로 역할이 격상되며, 30조 원을 훌쩍 넘는 역대 최대 R&D 예산이 편성되었습니다.
+            </p>
+            <div class="highlight-card">
+              <strong>💡 7대 SEED 전략 프로젝트</strong>
+              <p>AI, 차세대 반도체, 양자, 첨단 바이오, 우주항공, 차세대 원자력(SMR), 청정에너지 등 승자독식 분야에 파격 투자합니다.</p>
+            </div>
+            <div class="highlight-card">
+              <strong>💡 청년 연구자 든든 지원</strong>
+              <p>이공계 대학원생들이 학비와 생계 걱정 없이 연구에만 몰입할 수 있도록 연구생활장려금(스타이펜드) 지원 제도를 가동합니다.</p>
+            </div>
+          </div>
+          <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 12px; text-align: center;">
+            <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">📈🏛️</div>
+            <h4 style="color: var(--primary);">선도형 R&D 혁신</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+              나눠먹기식 소규모 과제를 지양하고 글로벌 톱 연구진과 함께하는 대형 블록버스터 과제 중심으로 대전환!
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. 최신 뉴스 및 기사 모음 섹션 (요구사항 4번 만족) -->
+  <section class="container" id="news">
+    <div class="section-header">
+      <span class="section-badge">LATEST NEWS & POLICY</span>
+      <h2>과기정통부 최신 보도 및 뉴스</h2>
+      <p>공식 보도자료 및 대한민국 주요 언론에 게재된 최신 소식과 직통 링크입니다.</p>
+    </div>
+
+    <!-- 뉴스 카테고리 필터 -->
+    <div class="news-filters">
+      <button class="filter-btn active" onclick="filterNews('all')">전체보기</button>
+      <button class="filter-btn" onclick="filterNews('ai')">AI · 반도체</button>
+      <button class="filter-btn" onclick="filterNews('space')">우주항공 · 통신</button>
+      <button class="filter-btn" onclick="filterNews('quantum')">양자 · 미래기술</button>
+      <button class="filter-btn" onclick="filterNews('rnd')">R&D · 인재</button>
+    </div>
+
+    <!-- 뉴스 리스트 그리드 -->
+    <div class="grid" id="news-grid">
+      
+      <!-- 뉴스 1: 공식 보도자료 포털 -->
+      <div class="news-card" data-cat="rnd">
+        <span class="news-category">공식 보도</span>
+        <h4 class="news-title">과기정통부 공식 보도자료 통합 브리핑 포털</h4>
+        <p class="news-desc">과학기술정보통신부가 발표하는 일일 정책 보도자료, 장·차관 일정, 브리핑 전문을 실시간으로 열람할 수 있는 공식 창구입니다.</p>
+        <div class="news-footer">
+          <span>과기정통부 공식</span>
+          <a class="news-link" href="https://www.msit.go.kr/news/sisaList.do?sisaId=sisa1&mPid=214" target="_blank" rel="noopener noreferrer">
+            원문 보기 ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- 뉴스 2: AI 메가프로젝트 & 3대 강국 -->
+      <div class="news-card" data-cat="ai">
+        <span class="news-category">AI · 반도체</span>
+        <h4 class="news-title">AI 3대 강국 도약 선포: 'AI 고속도로' 구축 및 3대 메가프로젝트</h4>
+        <p class="news-desc">정부가 Next-AI 시대 선도를 위해 독자 AI 파운데이션 모델 개발과 전국 데이터 인프라 고속도로 구축에 대규모 예산을 집중 투입합니다.</p>
+        <div class="news-footer">
+          <span>대한민국 정책브리핑</span>
+          <a class="news-link" href="https://www.korea.kr" target="_blank" rel="noopener noreferrer">
+            기사 보기 ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- 뉴스 3: AI 반도체 신뢰성 검증 성공 -->
+      <div class="news-card" data-cat="ai">
+        <span class="news-category">AI · 반도체</span>
+        <h4 class="news-title">우주·대기 환경 극복 국산 AI 반도체 소자 성능 검증 성과</h4>
+        <p class="news-desc">양성자가속기 등을 활용해 극한의 방사선 환경에서도 오류를 최소화하는 차세대 국산 AI 반도체 패키징 및 신뢰성 검증에 성공했습니다.</p>
+        <div class="news-footer">
+          <span>MSIT / KDI 경제정보</span>
+          <a class="news-link" href="https://www.msit.go.kr" target="_blank" rel="noopener noreferrer">
+            원문 보기 ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- 뉴스 4: 양자 마스터플랜 및 양자통신망 -->
+      <div class="news-card" data-cat="quantum">
+        <span class="news-category">양자 · 미래기술</span>
+        <h4 class="news-title">정부 최초 '양자 마스터플랜' 선포 및 전국 개방형 실증망 확대</h4>
+        <p class="news-desc">양자기술산업법 시행에 발맞춰 50큐비트·1000큐비트급 양자컴퓨터 개발을 가속하고, 전국 광역 거점에 양자암호통신 시험망을 연동합니다.</p>
+        <div class="news-footer">
+          <span>과기정통부 / 매일경제</span>
+          <a class="news-link" href="https://www.mk.co.kr" target="_blank" rel="noopener noreferrer">
+            기사 보기 ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- 뉴스 5: 우주항공청 연계 및 저궤도 위성통신 -->
+      <div class="news-card" data-cat="space">
+        <span class="news-category">우주항공 · 통신</span>
+        <h4 class="news-title">세계 5대 우주강국 진입: 차세대 발사체와 저궤도 위성통신망 착수</h4>
+        <p class="news-desc">누리호 기술 이전과 함께 차세대 발사체 개발에 본격 착수하고, 도서산간 통신 음영을 해소할 대한민국 독자 저궤도 위성통신망을 구축합니다.</p>
+        <div class="news-footer">
+          <span>KDI 경제정보센터</span>
+          <a class="news-link" href="https://epic.kdi.re.kr" target="_blank" rel="noopener noreferrer">
+            리포트 보기 ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- 뉴스 6: 국가 전략기술 및 7대 SEED R&D 예산 -->
+      <div class="news-card" data-cat="rnd">
+        <span class="news-category">R&D · 인재</span>
+        <h4 class="news-title">역대 최대 규모 국가 전략기술 R&D 편성 및 7대 SEED 프로젝트 가동</h4>
+        <p class="news-desc">AI, 양자, 첨단바이오 등 12대 국가전략기술에 예산을 전면 집중하고 청년 이공계 연구자 생활장려금 제도를 본격 도입합니다.</p>
+        <div class="news-footer">
+          <span>사이언스타임즈 / KNP뉴스</span>
+          <a class="news-link" href="https://www.sciencetimes.co.kr" target="_blank" rel="noopener noreferrer">
+            해설 보기 ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 국민 참여형 퀴즈 위젯 -->
+    <div class="quiz-card">
+      <h3 style="color: var(--primary); margin-bottom: 0.5rem;">💡 10초 퀴즈: 과기정통부 상식 체크!</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        현재 정부가 세계 3대 강국 도약을 목표로 전폭 지원하는 핵심 미래 기술 분야는 무엇일까요?
+      </p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="checkQuiz(false, this)">① 증기기관</button>
+        <button class="quiz-btn" onclick="checkQuiz(true, this)">② 인공지능(AI) 및 반도체</button>
+        <button class="quiz-btn" onclick="checkQuiz(false, this)">③ 팩스 및 공중전화</button>
+      </div>
+      <div class="quiz-result" id="quiz-result"></div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h4>과학기술정보통신부</h4>
+        <p style="max-width: 420px; line-height: 1.6;">
+          (30121) 세종특별자치시 가름로 194 (어진동) 정부세종청사<br>
+          정부민원안내 콜센터 : 국번없이 110 (무료)
+        </p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h5>주요 바로가기</h5>
+          <ul>
+            <li><a href="https://www.msit.go.kr" target="_blank" rel="noopener noreferrer">공식 웹사이트</a></li>
+            <li><a href="https://www.korea.kr" target="_blank" rel="noopener noreferrer">대한민국 정책브리핑</a></li>
+            <li><a href="https://www.msit.go.kr/news/sisaList.do?sisaId=sisa1&mPid=214" target="_blank" rel="noopener noreferrer">온라인 보도자료실</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>관련 산하기관</h5>
+          <ul>
+            <li><a href="https://www.nst.re.kr" target="_blank" rel="noopener noreferrer">국가과학기술연구회</a></li>
+            <li><a href="https://www.nipa.kr" target="_blank" rel="noopener noreferrer">정보통신산업진흥원 (NIPA)</a></li>
+            <li><a href="https://www.nia.or.kr" target="_blank" rel="noopener noreferrer">한국지능정보사회진흥원 (NIA)</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 과학기술정보통신부 소개 웹 애플리케이션 (독립 실행형 HTML/CSS/JS 버전)</p>
+    </div>
+  </footer>
+
+  <!-- 클라이언트 자바스크립트 -->
+  <script>
+    // 1. 탭 전환 기능
+    function switchTab(index) {
+      const tabs = document.querySelectorAll('.tab-btn');
+      const panels = document.querySelectorAll('.tab-panel');
+
+      tabs.forEach((tab, i) => {
+        if (i === index) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+
+      panels.forEach((panel, i) => {
+        if (i === index) {
+          panel.classList.add('active');
+        } else {
+          panel.classList.remove('active');
+        }
+      });
+    }
+
+    // 2. 뉴스 카테고리 필터링 기능
+    function filterNews(category) {
+      // 버튼 액티브 스타일
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        if (btn.textContent.includes(getCatName(category))) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // 카드 표시/숨김
+      const newsCards = document.querySelectorAll('.news-card');
+      newsCards.forEach(card => {
+        const itemCat = card.getAttribute('data-cat');
+        if (category === 'all' || itemCat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function getCatName(cat) {
+      switch(cat) {
+        case 'ai': return 'AI';
+        case 'space': return '우주';
+        case 'quantum': return '양자';
+        case 'rnd': return 'R&D';
+        default: return '전체';
+      }
+    }
+
+    // 3. 퀴즈 정답 체크 인터랙션
+    function checkQuiz(isCorrect, element) {
+      const resultEl = document.getElementById('quiz-result');
+      const allBtns = document.querySelectorAll('.quiz-btn');
+      allBtns.forEach(b => b.style.opacity = '0.7');
+      element.style.opacity = '1';
+
+      if (isCorrect) {
+        resultEl.innerHTML = '🎉 <strong>정답입니다!</strong> 과기정통부는 세계 3대 AI 강국 도약과 차세대 반도체 초격차 확보를 최우선으로 추진하고 있습니다.';
+        resultEl.style.color = '#be185d';
+      } else {
+        resultEl.innerHTML = '❌ <strong>다시 생각해보세요!</strong> 미래 국가 경쟁력을 결정짓는 최첨단 기술을 골라보세요.';
+        resultEl.style.color = '#e11d48';
+      }
+    }
+
+    // 4. 맞춤 혜택 진단 설문 / 체크리스트 로직
+    let currentRole = null;
+
+    const interestData = {
+      student: [
+        { id: 'stipend', title: '연구생활장려금(스타이펜드)', desc: '이공계 대학원생 석·박사과정 학생 대상 안정적 생활비 지원', emoji: '💵' },
+        { id: 'scholarship', title: '대통령 과학장학금 및 연구지원금', desc: '우수 이공계 인재 발굴 및 등록금·학업장려비 전액 지원', emoji: '📜' },
+        { id: 'intern', title: '정부출연연구기관(KIST 등) 인턴십', desc: '국가 연구소에서 첨단 장비를 직접 만지며 연구하는 기회', emoji: '🧪' },
+        { id: 'study_abroad', title: '글로벌 톱 연구기관 연수 지원', desc: '미국, 유럽 등 해외 선도 대학/연구소 파견 연구 기회', emoji: '✈️' }
+      ],
+      jobseeker: [
+        { id: 'bootcamp', title: '이노베이션 아카데미(42 서울) & SW 마에스트로', desc: '자기주도형 문제해결 소프트웨어·AI 최고급 인재 양성', emoji: '🧑‍💻' },
+        { id: 'voucher_edu', title: '디지털 신기술 핵심 실무인재 양성', desc: '생성형 AI, 빅데이터, 클라우드 무상 전문 교육 및 취업 연계', emoji: '🎓' },
+        { id: 'cyber_security', title: '화이트햇 케이-쉴드(사이버보안 인재)', desc: '사이버 보안 실전 대응 전문가 교육 및 정보보호 자격 지원', emoji: '🛡️' },
+        { id: 'metaverse', title: '메타버스 & 디지털 콘텐츠 아카데미', desc: 'XR, 3D 그래픽, 게임 엔진 등 차세대 콘텐츠 실무 교육', emoji: '🥽' }
+      ],
+      business: [
+        { id: 'ai_voucher', title: 'AI 바우처 지원 사업 (최대 수억 원)', desc: 'AI 솔루션 도입이 필요한 중소·벤처기업에 바우처 직접 발급', emoji: '🎟️' },
+        { id: 'cloud_support', title: '중소기업 클라우드 서비스 보급·확산', desc: '클라우드 도입 비용 및 이용료 70~80% 지원', emoji: '☁️' },
+        { id: 'data_voucher', title: '데이터 바우처 & 가명정보 결합 지원', desc: '데이터 구매, 가공에 소요되는 비용 지원을 통한 신규 비즈니스 창출', emoji: '📊' },
+        { id: 'rnd_grant', title: 'ICT 중소·스타트업 R&D 바우처', desc: '대학·연구기관의 기술을 이전받아 사업화할 수 있는 R&D 비용 지원', emoji: '💡' }
+      ],
+      researcher: [
+        { id: 'seed_rnd', title: '7대 SEED 전략 R&D 과제 공모', desc: 'AI, 양자, 첨단반도체, 바이오 등 블록버스터 대형 연구 지원', emoji: '🔬' },
+        { id: 'infra', title: '국가 초고성능 슈퍼컴퓨터 & 가속기 인프라', desc: '국가센터 자원 우선 배분 및 첨단 방사광/양성자 가속기 이용', emoji: '🖥️' },
+        { id: 'young_scientist', title: '우수 신진연구자 연구실 구축비 지원', desc: '최초 임용 교원 및 독립 연구자 연구 인프라 조기 정착비 지원', emoji: '🌱' },
+        { id: 'global_collab', title: '호라이즌 유럽 등 국제 공동연구 참여', desc: 'EU 및 글로벌 선도국과의 다자간 공동연구 예산 직접 지원', emoji: '🌐' }
+      ],
+      general: [
+        { id: 'telecom', title: '통신비 절감 & 알뜰폰 종합포털 지원', desc: '나에게 꼭 맞는 5G 중저가 요금제 및 알뜰폰(알뜰폰HUB) 비교 안내', emoji: '📱' },
+        { id: 'digital_learning', title: '전국 주민센터 디지털 배움터', desc: '스마트폰 기초, 키오스크 이용, 모바일 뱅킹 무료 대면 교육', emoji: '👵' },
+        { id: 'phishing_protect', title: '보이스피싱 & 스팸문자 차단 서비스', desc: 'AI 기반 피싱 번호 실시간 탐지 및 악성 앱 자동 무력화 기술 보급', emoji: '🛡️' },
+        { id: 'science_center', title: '국립과학관(과천·중앙·광주·대구·부산) 할인', desc: '온 가족이 함께 즐기는 우주·로봇·자연사 첨단 전시 및 특별전', emoji: '🪐' }
+      ]
+    };
+
+    const benefitResultsDB = {
+      // 학생 관련
+      stipend: {
+        title: '한국형 연구생활장려금 (연구 스타이펜드)',
+        tag: '학생 복지 & 연구몰입',
+        desc: '이공계 대학원 석·박사 과정 학생들이 생계 걱정 없이 연구에 몰두할 수 있도록 최소 생활 연구비를 정부와 대학이 매칭해 안정적으로 보장하는 제도입니다.',
+        link: 'https://www.msit.go.kr',
+        linkText: '과기정통부 장학/생활지원 안내 ↗'
+      },
+      scholarship: {
+        title: '대통령과학장학금 & 국가우수장학금',
+        tag: '장학금 지원',
+        desc: '과학기술 분야 최우수 대학(원)생을 선발하여 등록금 전액 및 매 학기 250만~500만 원 상당의 학업장려비를 지원합니다.',
+        link: 'https://www.kosaf.go.kr',
+        linkText: '한국장학재단 바로가기 ↗'
+      },
+      intern: {
+        title: '출연연구원(KIST, ETRI, 항우연 등) 학연 협동과정',
+        tag: '연구 인프라',
+        desc: '정부출연연구원의 세계적 연구 인프라와 슈퍼컴을 직접 활용하여 학위 논문 연구를 수행하고 인건비를 지원받을 수 있습니다.',
+        link: 'https://www.nst.re.kr',
+        linkText: '국가과학기술연구회 인턴십 ↗'
+      },
+      study_abroad: {
+        title: '글로벌 과학기술 인재 해외연수 지원사업',
+        tag: '글로벌 연구',
+        desc: '차세대 전략기술(AI, 양자, 반도체) 분야의 우수 대학원생을 선발해 해외 유수 대학 및 연구기관 파견 연수 비용(체재비 포함)을 전액 지원합니다.',
+        link: 'https://www.nrf.re.kr',
+        linkText: '한국연구재단 공고 ↗'
+      },
+      // 취준생 관련
+      bootcamp: {
+        title: '이노베이션 아카데미 (42 Seoul) & SW마에스트로',
+        tag: 'SW 무상 교육',
+        desc: '교수·교재·학비가 없는 3무(無) 혁신 소프트웨어 교육기관! 선발 시 최고급 장비와 매월 100만 원 상당의 교육지원금을 받으며 최고급 개발자로 성장합니다.',
+        link: 'https://42seoul.kr',
+        linkText: '42 서울 공식 안내 ↗'
+      },
+      voucher_edu: {
+        title: 'K-디지털 트레이닝 & AI 핵심 인재 양성',
+        tag: '취업 연계',
+        desc: '산업계 수요를 반영한 생성형 AI 프롬프트 엔지니어링, 클라우드 아키텍트, 빅데이터 파이프라인 무상 실무 프로젝트 과정입니다.',
+        link: 'https://www.nipa.kr',
+        linkText: '정보통신산업진흥원 교육 ↗'
+      },
+      cyber_security: {
+        title: '최정예 정보보호 전문인력 (K-Shield) 양성',
+        tag: '사이버 보안',
+        desc: '한국인터넷진흥원(KISA) 주관으로 실전 모의해킹, 침해사고 분석, 악성코드 역공학 실무를 무료로 교육하고 자격 취득을 지원합니다.',
+        link: 'https://www.kisa.or.kr',
+        linkText: 'KISA 보안아카데미 ↗'
+      },
+      metaverse: {
+        title: '메타버스 아카데미 & 가상융합콘텐츠 개발자 과정',
+        tag: '신기술 콘텐츠',
+        desc: '유니티(Unity), 언리얼(Unreal) 기반 3D 그래픽 및 혼합현실(XR) 서비스 기획·개발을 전액 국비로 배우고 취업 포트폴리오를 만듭니다.',
+        link: 'https://metaverse.rapa.or.kr',
+        linkText: '메타버스 아카데미 ↗'
+      },
+      // 기업 관련
+      ai_voucher: {
+        title: 'AI 바우처 지원 사업 (기업당 최대 2~3억 원)',
+        tag: '기업 비용 지원',
+        desc: '자사 제품·공정에 AI를 도입하고 싶지만 기술력이 부족한 중소·벤처기업에게 솔루션 구매 비용을 바우처 형태로 전액 지원합니다.',
+        link: 'https://www.nipa.kr',
+        linkText: 'NIPA AI 바우처 공고 ↗'
+      },
+      cloud_support: {
+        title: '중소기업 클라우드 서비스 보급·확산 바우처',
+        tag: '디지털 전환',
+        desc: 'ERP, CRM, 보안 소프트웨어 등 검증된 SaaS 클라우드 서비스 이용료의 최대 80%를 정부가 대신 납부해 드립니다.',
+        link: 'https://www.cloudmarket.or.kr',
+        linkText: '클라우드 바우처 포털 ↗'
+      },
+      data_voucher: {
+        title: '데이터 바우처 지원 사업',
+        tag: '빅데이터 비즈니스',
+        desc: '신규 비즈니스 모델 개발에 필요한 데이터 구매(최대 500만 원) 및 데이터 가공(최대 수천만 원) 비용을 맞춤 지원합니다.',
+        link: 'https://kdata.or.kr',
+        linkText: '한국데이터산업진흥원 ↗'
+      },
+      rnd_grant: {
+        title: 'ICT R&D 혁신 바우처 지원',
+        tag: '기술개발 R&D',
+        desc: '자체 R&D가 어려운 중소기업이 공공 연구기관이나 대학 연구실에 기술개발을 의뢰할 수 있도록 연구비를 정부가 직접 지원합니다.',
+        link: 'https://www.iitp.kr',
+        linkText: '정보통신기획평가원 ↗'
+      },
+      // 전문 연구자
+      seed_rnd: {
+        title: '12대 국가전략기술 & 7대 SEED 전략 R&D 과제',
+        tag: '연구비 지원',
+        desc: '초격차 반도체, 양자, 저궤도 위성, 첨단 바이오 등 블록버스터급 국가 과제에 연간 수십억 원 단위의 대형 연구비를 장기 지원합니다.',
+        link: 'https://www.iris.go.kr',
+        linkText: '범부처통합연구지원시스템(IRIS) ↗'
+      },
+      infra: {
+        title: '국가 초고성능 슈퍼컴퓨팅 6호기 & 가속기 공동 활용',
+        tag: '연구 인프라',
+        desc: '방대한 AI 연산과 물리 시뮬레이션에 필요한 국가 초고성능 슈퍼컴 자원 계정과 포항 방사광가속기 빔라인을 우선 배정받을 수 있습니다.',
+        link: 'https://www.kisti.re.kr',
+        linkText: 'KISTI 슈퍼컴퓨팅센터 ↗'
+      },
+      young_scientist: {
+        title: '우수 신진연구자 최초 혁신 실험실 구축 지원',
+        tag: '신진 연구자',
+        desc: '대학 및 연구기관에 신규 임용된 젊은 연구자에게 연구 장비 구입비(최대 1~2억 원)와 다년도 기초연구비를 지원합니다.',
+        link: 'https://www.nrf.re.kr',
+        linkText: '연구재단 신진연구 공모 ↗'
+      },
+      global_collab: {
+        title: '글로벌 프런티어 및 다자간 국제 공동연구사업',
+        tag: '글로벌 네트워크',
+        desc: 'EU 최대 다자 연구혁신 프로그램 호라이즌 유럽(Horizon Europe) 및 미국 국립연구소와의 합동 연구비 직접 매칭을 지원합니다.',
+        link: 'https://www.msit.go.kr',
+        linkText: '글로벌 R&D 협력 포털 ↗'
+      },
+      // 일반 국민
+      telecom: {
+        title: '통신요금 감면 & 알뜰폰 종합포털(알뜰폰Hub)',
+        tag: '가계통신비 절감',
+        desc: '기초생활수급자, 차상위계층, 장애인, 국가유공자 통신비 감면(월 최대 33,500원 할인) 및 맞춤형 알뜰폰 요금제 원스톱 가입을 제공합니다.',
+        link: 'https://www.mvnohub.kr',
+        linkText: '알뜰폰Hub 요금제 비교 ↗'
+      },
+      digital_learning: {
+        title: '전국 1,000여 개 주민센터 "디지털 배움터"',
+        tag: '생활 밀착 교육',
+        desc: '스마트폰 기초부터 KTX 예매, 무인 키오스크 주문, 모바일 신분증 발급까지 전문 강사가 1:1로 친절하게 무료 교육해 드립니다.',
+        link: 'https://www.디지털배움터.kr',
+        linkText: '우리동네 디지털배움터 찾기 ↗'
+      },
+      phishing_protect: {
+        title: 'AI 피싱·스미싱 악성앱 차단 및 24시간 사이버 안전센터',
+        tag: '국민 안전',
+        desc: '의심스러운 문자나 카톡 링크를 KISA 보호나라에 전송하면 1초 만에 악성 여부를 분석해주며, 불법 스팸 번호를 신속 차단합니다.',
+        link: 'https://www.boho.or.kr',
+        linkText: 'KISA 보호나라 바로가기 ↗'
+      },
+      science_center: {
+        title: '전국 국립과학관 특별 전시 및 과학교육 프로그램',
+        tag: '문화·여가 혜택',
+        desc: '국립과천과학관, 중앙과학관, 광주·대구·부산과학관에서 누리호 실물모형 관람, 천체투영관, 청소년 주말 코딩 캠프 등을 저렴하게 이용할 수 있습니다.',
+        link: 'https://www.sciencecenter.go.kr',
+        linkText: '국립과천과학관 포털 ↗'
+      }
+    };
+
+    function selectRole(role, element) {
+      currentRole = role;
+      
+      // UI 선택 표시
+      document.querySelectorAll('#survey-step-1 .option-card').forEach(el => el.classList.remove('selected'));
+      element.classList.add('selected');
+      element.querySelector('input').checked = true;
+
+      // 다음 버튼 활성화
+      const nextBtn = document.getElementById('btn-to-step2');
+      nextBtn.disabled = false;
+      nextBtn.style.opacity = '1';
+    }
+
+    function goToStep(step) {
+      const step1 = document.getElementById('survey-step-1');
+      const step2 = document.getElementById('survey-step-2');
+      const resultBox = document.getElementById('survey-result');
+
+      const dot1 = document.getElementById('dot-step1');
+      const dot2 = document.getElementById('dot-step2');
+      const dot3 = document.getElementById('dot-step3');
+
+      if (step === 1) {
+        step1.style.display = 'block';
+        step2.style.display = 'none';
+        resultBox.style.display = 'none';
+
+        dot1.className = 'step-dot active';
+        dot2.className = 'step-dot';
+        dot3.className = 'step-dot';
+      } else if (step === 2) {
+        if (!currentRole) return;
+
+        // 질문 2 항목 동적 빌드
+        renderInterestOptions(currentRole);
+
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+        resultBox.style.display = 'none';
+
+        dot1.className = 'step-dot completed';
+        dot2.className = 'step-dot active';
+        dot3.className = 'step-dot';
+      }
+    }
+
+    function renderInterestOptions(role) {
+      const container = document.getElementById('interest-options-container');
+      const items = interestData[role] || [];
+
+      let html = '';
+      items.forEach((item, index) => {
+        html += `
+          <label class="option-card selected" onclick="toggleInterest(this)">
+            <input type="checkbox" name="interests" value="${item.id}" checked>
+            <div class="option-emoji">${item.emoji}</div>
+            <div class="option-title">${item.title}</div>
+            <div class="option-desc">${item.desc}</div>
+          </label>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function toggleInterest(element) {
+      const chk = element.querySelector('input');
+      // 클릭 시 기본 토글 반영
+      setTimeout(() => {
+        if (chk.checked) {
+          element.classList.add('selected');
+        } else {
+          element.classList.remove('selected');
+        }
+      }, 10);
+    }
+
+    function showResults() {
+      const checkedBoxes = document.querySelectorAll('input[name="interests"]:checked');
+      const selectedIds = Array.from(checkedBoxes).map(cb => cb.value);
+
+      const step2 = document.getElementById('survey-step-2');
+      const resultBox = document.getElementById('survey-result');
+      const dot2 = document.getElementById('dot-step2');
+      const dot3 = document.getElementById('dot-step3');
+
+      step2.style.display = 'none';
+      resultBox.style.display = 'block';
+
+      dot2.className = 'step-dot completed';
+      dot3.className = 'step-dot active';
+
+      // 뱃지 및 헤드라인 설정
+      const roleTitles = {
+        student: '이공계 대학(원)생',
+        jobseeker: '청년·취업준비생',
+        business: '기업인·창업가',
+        researcher: '전문 연구자',
+        general: '일반 국민'
+      };
+
+      document.getElementById('result-user-badge').textContent = `${roleTitles[currentRole] || '국민'} 맞춤 결과`;
+      document.getElementById('result-headline').textContent = `${roleTitles[currentRole] || '국민'}님을 위한 과기정통부 핵심 지원 제도`;
+
+      // 결과 목록 생성
+      const listContainer = document.getElementById('benefit-items-list');
+      
+      if (selectedIds.length === 0) {
+        listContainer.innerHTML = `
+          <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+            <p>선택하신 관심 분야가 없습니다. 다시 설문하여 관심 항목을 체크해 주세요.</p>
+          </div>
+        `;
+        return;
+      }
+
+      let resultHtml = '';
+      selectedIds.forEach(id => {
+        const item = benefitResultsDB[id];
+        if (item) {
+          resultHtml += `
+            <div class="benefit-item">
+              <div class="benefit-icon">🎁</div>
+              <div class="benefit-details">
+                <div class="benefit-title">
+                  <span>${item.title}</span>
+                  <span class="benefit-tag">${item.tag}</span>
+                </div>
+                <div class="benefit-desc">${item.desc}</div>
+                <a class="benefit-link-btn" href="${item.link}" target="_blank" rel="noopener noreferrer">
+                  ${item.linkText}
+                </a>
+              </div>
+            </div>
+          `;
+        }
+      });
+
+      listContainer.innerHTML = resultHtml;
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function resetSurvey() {
+      currentRole = null;
+      document.querySelectorAll('#survey-step-1 .option-card').forEach(el => {
+        el.classList.remove('selected');
+        const inp = el.querySelector('input');
+        if (inp) inp.checked = false;
+      });
+
+      const nextBtn = document.getElementById('btn-to-step2');
+      nextBtn.disabled = true;
+
+      goToStep(1);
+    }
+  </script>
+</body>
+</html>
